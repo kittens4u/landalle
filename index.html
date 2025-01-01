@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Noah's Cool Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/jpg" href="https://i.ibb.co/xMnzd6n/imagecool-9.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>@font-face {
+  font-family: Nunitosemi;
+  src: url(Nunito-SemiBold.ttf);}
+  @font-face {
+  font-family: pagetext;
+  src: url(Montserrat-SemiBold.ttf);}
+
+  @font-face {
+  font-family: linksfont;
+  src: url(Poppins-Medium.ttf);}
+
+a{font-family: 'linksfont';}
+
+  h1{
+    font-family: 'Nunitosemi',Arial, Helvetica, sans-serif;
+
+  }
+
+p{
+  font-family: 'pagetext',Arial, Helvetica, sans-serif;
+} 
+h2{
+  font-family: 'pagetext',Arial, Helvetica, sans-serif;
+} 
+h3{
+  font-family: 'pagetext',Arial, Helvetica, sans-serif;
+} 
+h4{
+  font-family: 'pagetext',Arial, Helvetica, sans-serif;
+} 
+h5{
+  font-family: 'pagetext',Arial, Helvetica, sans-serif;
+} 
+h6{
+  font-family: 'pagetext',Arial, Helvetica, sans-serif;
+} 
+
+</style>
+    <style>
+        body {
+            margin: 0;
+         
+        }
+
+        .navbar {
+          width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgb(0,154,255);
+            background: linear-gradient(131deg, rgba(0,154,255,1) 0%, rgba(43,0,255,1) 22%, rgba(43,0,255,1) 100%);;
+            padding: 10px;
+            color: white;
+            position: fixed; /* or 'absolute' if preferred */ top: 0; left: 0; z-index: 9999;
+          
+          
+          }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+        }
+
+        .navbar a:hover {
+          text-align: center;
+          height: 75px;
+          border-top-right-radius: 20px;
+          border-top-left-radius: 20px;
+          border-bottom-right-radius: 15px;
+          border-bottom-left-radius: 15px;
+            background-color: #484eff;
+        }
+
+        .navbar .brand {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+        }
+
+        @media screen and (max-width: 699px) {
+            .menu {
+                flex-direction: column;
+                display: none;
+                width: 100%;
+            }
+
+            .menu a {
+                text-align: center;
+                padding: 10px;
+                border-top: 1px solid #575757;
+            }
+
+            .menu.show {
+                display: flex;
+            }
+
+            .navbar .toggle-button {
+                display: inline-block;
+                cursor: pointer;
+            }
+        }
+
+        @media screen and (min-width: 700px) {
+            .navbar .toggle-button {
+                display: none;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .close {
+            color: #1e00ff;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: rgb(70, 70, 70);
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand">
+          <img style="height:100px;" src="https://i.ibb.co/6Fk82j5/Untitled55525.png" alt="Landalle Scripts"></div>
+
+   
+      </a>  <div class="menu">
+        <a href="https://kittens4u.github.io/landallescripts">Home</a>
+            <a href="https://kittens4u.github.io/landallescripts-learn">Learn</a>
+          
+            <a href="https://kittens4u.github.io/">Websites</a>
+            <a href="https://kittens4u.github.io/landallescripts-account">Account</a>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div style="box-shadow: 10px 4px 25px -10px rgba(0,0,0,0.88);
+        -webkit-box-shadow: 10px 4px 25px -10px rgba(0,0,0,0.88);
+        -moz-box-shadow: 10px 4px 25px -10px rgba(0,0,0,0.88);" class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h1>Menu</h1>
+            <button  style="background: rgb(0,94,255);
+background: linear-gradient(131deg, rgba(0,94,255,1)
+ 0%, rgba(43,0,255,1) 12%, rgba(43,0,255,1) 100%); 
+ 
+ border-radius: 20px; color: white;
+
+ " onclick="closeModal()"><h2>Close</h2></button>
+           <!-- Add your menu items here -->
+
+        </div>
+    </div>
+
+
+    <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .background-image {
+            width: 100%;
+            height: 150px;
+            background-image: url('image (10).png');
+            background-size: cover;
+            background-position: center;
+
+            
+        }
+    </style>
+    <title>Background Image Example</title>
+</head>
+
+    <div class="background-image">
+       
+    </div>
+
+
+
+
+
+
+<style>
+
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Create a column layout with Flexbox */
+    .row {
+      display: flex;
+    }
+    
+    /* Left column (menu) */
+    .left {
+      flex: 35%;
+      padding: 15px 0;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    
+    .left h2 {
+      padding-left: 8px;
+    }
+    
+    /* Right column (page content) */
+    .right {
+      flex: 65%;
+      padding: 15px;
+    }
+    
+    /* Style the search box */
+    #mySearch {
+      width: 80%;
+      border-radius: 20px;
+      font-size: 18px;
+      padding: 11px;
+      border: 1px solid #ddd;
+    }
+    
+    /* Style the navigation menu inside the left column */
+    #myMenu {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    #myMenu li a {
+      padding: 12px;
+      text-decoration: none;
+      color: black;
+      display: block
+    }
+    
+    #myMenu li a:hover {
+        border-radius: 14px;
+        background: rgb(255,255,255);
+        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(183,188,228,1) 100%);;
+    }
+    </style>
+    </head>
+    <body>
+    
+ 
+    <div class="row">
+      <div class="left" style="background: rgb(107,124,255);
+background: linear-gradient(131deg, rgba(107,124,255,1) 0%, rgba(160,171,255,1) 19%, rgba(160,171,255,1) 100%);">
+        <h2>Templates</h2>
+        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+        <ul id="myMenu">
+          <li><a href="#">Basic Text</a></li>
+          <li><a href="#">Images</a></li>
+          <li><a href="#">Simple Form</a></li>
+          <li><a href="#">Hover Tab Menu</a></li>
+          <li><a href="#">Top Menu</a></li>
+          <li><a href="#">Responsive Top Menu</a></li>
+          <li><a href="#">Gradient Div</a></li>
+          <li><a href="#">Styled Buttons</a></li>
+          <li><a href="#">Side Nav Bar</a></li>
+          <li><a href="#">Sign In Page</a></li>
+          <li><a href="#">Online Checkout</a></li>
+          <li><a href="#">Social Bar</a></li>
+         
+        </ul>
+      </div>
+      
+      <div class="right" style="background-color:#ffffff;">
+<h1>Want to create a website?</h1>
+<p>
+  
+  
+  
+  
+  
+  
+  
+  All you need to do is click on <a href="https://kittens4u.github.io/landallescripts-learn">"Learn"</a>  at the top
+
+
+
+
+</p>
+
+
+<br>
+
+<h1>Get Started</h1>
+<p>Use the search menu on the left, and find the element you need for your website.</p>
+<br>
+<div><img style="height: 400px;" src="https://i.ibb.co/c18LzJ1/Untitled5.png" >
+<br>
+
+<style>
+.index-black
+{
+  width: 750px;
+  height: 600px;
+  
+  border-radius: 10px;
+  background-color: black;
+  color: rgb(255, 255, 255);
+}
+
+
+</style>
+<div class="index-black">
+<br>
+<br>
+<h3>
+
+<br>
+
+</h3>
+
+<br>
+<br>
+</div>
+
+   </div>
+    </div>
+    
+    <script>
+    function myFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("mySearch");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myMenu");
+      li = ul.getElementsByTagName("li");
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+    </script>
+
+
+<style></style> 
+
+<div class="kot-567"></div>
+
+
+</body>
+</html>
